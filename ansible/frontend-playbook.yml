@@ -1,0 +1,7 @@
+# ansible/frontend-playbook.yml
+- name: Deploy Frontend
+  hosts: webservers
+  become: yes
+  roles:
+    - common
+    - frontend
