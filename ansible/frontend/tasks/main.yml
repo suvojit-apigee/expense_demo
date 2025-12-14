@@ -11,4 +11,7 @@
         name: nginx
         enabled: true
         state: started
-  
+    - name: Clean the old Content
+      ansible.builtin.file:
+        path: /usr/share/nginx/html
+        state: absent 
