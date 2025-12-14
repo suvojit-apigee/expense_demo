@@ -13,3 +13,9 @@
     src: https://expense-artifacts.s3.amazonaws.com/{{ app_name }}.zip
     dest: "{{ app_home }}"
     remote_src: yes
+
+- name: Ensure Nginx is started and enabled
+  ansible.builtin.service:
+    name: nginx
+    state: restarted
+    enabled: yes
