@@ -15,7 +15,7 @@
     - name: Copy Expense Nginx Configuration
       ansible.builtin.copy:
         src: expense.conf
-        dest: {{ app_conf_dest }}
+        dest: "{{ app_conf_dest }}"
 
     - name: Ensure Nginx is started and enabled
       ansible.builtin.service:
