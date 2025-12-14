@@ -1,0 +1,3 @@
+app_home: /usr/share/nginx/html
+app_name: expense-frontend-v2
+app_conf_dest: /etc/nginx/default.d/expense.conf

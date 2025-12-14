@@ -1,0 +1,24 @@
+- name: Install the latest version of Nginx
+  hosts: webservers
+  become: yes
+  tasks:
+    - name: Ensure Nginx is installed and running
+      ansible.builtin.dnf:
+        name: nginx
+        state: latest
+
+    - name: Import Application Common tasks
+      ansible.builtin.import_role:
+        name: common
+        tasks_from: main.yml 
+
+    - name: Copy Expense Nginx Configuration
+      ansible.builtin.copy:
+        src: expense.conf
+        dest: {{ app_conf_dest }}
+
+    - name: Ensure Nginx is started and enabled
+      ansible.builtin.service:
+        name: nginx
+        state: restarted
+        enabled: yes
