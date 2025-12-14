@@ -4,11 +4,6 @@
     name: nginx
     state: latest
 
-- name: Import Application Common tasks
-  ansible.builtin.import_role:
-    name: common
-    tasks_from: main.yml 
-
 - name: Copy Expense Nginx Configuration
   ansible.builtin.copy:
     src: expense.conf
