@@ -2,12 +2,13 @@
   hosts: webservers
   become: yes
   tasks:
-  - name: Ensure Nginx is installed and running
-    ansible.builtin.dnf:
-      name: nginx
-      state: latest
-    ansible.builtin.systemd_service:
-      name: nginx
-      enabled: true
-      state: started
+    - name: Ensure Nginx is installed and running
+      ansible.builtin.dnf:
+        name: nginx
+        state: latest
+    - name: Ensure Nginx service is enabled and started
+      ansible.builtin.systemd_service:
+        name: nginx
+        enabled: true
+        state: started
   
