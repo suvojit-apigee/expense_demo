@@ -1,0 +1,17 @@
+# ansible-playbook.yml
+- name: Deploy Frontend
+  hosts: webservers
+  become: yes
+  roles:
+    - frontend
+    - common
+- name: Deploy Backend
+  hosts: appservers
+  become: yes
+  roles:
+    - backend
+- name: Deploy Database
+  hosts: dbservers
+  become: yes
+  roles:
+    - database

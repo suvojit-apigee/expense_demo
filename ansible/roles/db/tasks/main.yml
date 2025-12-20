@@ -1,0 +1,14 @@
+# ansible/roles/db/tasks/main.yml
+- name: Ensure Nginx is installed and running
+  ansible.builtin.dnf:
+    name: mysql-server
+    state: latest
+
+- name: Start and enable MySQL service
+  ansible.builtin.service:
+    name: mysqld
+    state: started
+    enabled: yes
+  
+- name: Setup MySQL Password
+  ansible.builtin.shell: mysql_secure_installation --set-root-pass ExpenseApp@1
